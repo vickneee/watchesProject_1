@@ -9,9 +9,9 @@
     --leather-brown-hover: #5A4E4E;
     --dark-brown: #2D2626; /* Deep accent */
     --silver: #C0C0C0; /* Watch case */
-    --cream: #F5F5F5; /* Watch face */
+    --cream: rgba(245, 245, 245, 0.7); /* Watch face */
     --gold: #D4AF37; /* Luxury accent */
-    --beige: #E8DCC4; /* Background accent */
+    --beige: rgba(232, 220, 195, 0.7); /* Background accent */
 }
 
 html {
@@ -113,8 +113,30 @@ header {
     justify-content: center;
     padding: 6rem 2rem;
     line-height: 1.5;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/pexels-transtudios-3153853.jpg') no-repeat center center/cover;
-    opacity: 0.7;
+    position: relative;
+    isolation: isolate;
+    /*background-color: #000;  !* Fallback color *!*/
+    /*background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/pexels-transtudios-3153853.jpg') no-repeat center center/cover;*/
+    /*opacity: 0.7;*/
+    /*z-index: -1;*/
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    inset: 0; /* Shorthand for top/right/bottom/left: 0 */
+    background: url('../assets/background-image-1600.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3; /* Combined with gradient opacity */
+    z-index: -1;
+}
+
+#home::after {
+    content: '';
+    position: absolute;
+    inset: 0; /* Shorthand for top/right/bottom/left: 0 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+    z-index: -1;
 }
 
 .column-container {
