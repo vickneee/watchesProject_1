@@ -71,8 +71,15 @@ header {
     color: transparent; /* Makes the text color transparent */
 }
 
+.logo-container img {
+    width: 52px;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
 .logo {
-    max-width: 300px;
+    width: 52px;
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
     transition: transform 0.3s ease;
 }
