@@ -105,7 +105,7 @@ header {
     color: var(--gold);
 }
 
-#section-1 {
+#home {
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -161,7 +161,7 @@ p {
     padding: 0 4rem;
 }
 
-#section-2 {
+#products {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,7 +250,7 @@ button:hover {
     border: 1px solid var(--gold);
 }
 
-#section-3 {
+#contact {
     background-color: #666;
     color: white;
     padding: 20px 0;
