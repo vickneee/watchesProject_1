@@ -1,12 +1,17 @@
+/***** Fonts ******/
+
 @font-face {
     font-family: "Montserrat";
     src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
-/* Main Color Palette */
+/***** Main Color Palette *****/
+
 :root {
+    --white: #FFFFFF; /* Text color */
+    --gray: #666666; /* Gray color */
     --leather-brown: #4A3E3E; /* Watch strap */
-    --leather-brown-hover: #5A4E4E;
+    --leather-brown-hover: #5A4E4E; /* Watch strap hover */
     --dark-brown: #2D2626; /* Deep accent */
     --silver: #C0C0C0; /* Watch case */
     --cream: rgba(245, 245, 245, 0.7); /* Watch face */
@@ -14,33 +19,94 @@
     --beige: rgba(232, 220, 195, 0.7); /* Background accent */
 }
 
+/***** General *****/
+
 html {
-    scroll-behavior: smooth;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: "Varela", sans-serif;
-    color: white;
     margin: 0;
     padding: 0;
+    font-family: "Varela", sans-serif;
+    color: var(--white);
     background: linear-gradient(217deg, rgba(223, 211, 211, 0.8), rgba(255, 0, 0, 0) 70.71%),
     linear-gradient(127deg, rgba(92, 96, 92, 0.8), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(49, 49, 53, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
 
-.container {
-    width: 85%;
+.main-container {
     margin: 0 auto;
+    width: 85%;
 }
+
+/***** Typography *****/
+
+h1 {
+    margin-bottom: 0;
+    padding: 0 4rem;
+    font-family: "Montserrat", "Verdana", "Helvetica", sans-serif;
+    font-size: 4rem;
+}
+
+h2 {
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+}
+
+h3 {
+    margin: 0 0 2rem 0;
+    padding: 0 4rem;
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin: 0;
+    padding: 0 4rem;
+    font-size: 1.2rem;
+}
+
+/***** Buttons *****/
+
+button {
+    margin: 0 1rem 1rem;
+    padding: 0.5rem 1.5rem;
+    color: var(--cream);
+    background-color: var(--leather-brown);
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--leather-brown-hover);
+    border: 1px solid var(--gold);
+    transform: translateY(-2px);
+}
+
+.button-fixed {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem !important;
+    border: 1px solid var(--gold);
+    z-index: 1;
+}
+
+/***** Header *****/
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2.5rem;
+    color: var(--white);
     background-color: var(--leather-brown);
-    color: white;
 }
 
 .header-sticky {
@@ -57,20 +123,6 @@ header {
     justify-content: center;
 }
 
-.logo-container p {
-    font-family: "Montserrat", sans-serif;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    margin: 1rem;
-    padding: 0;
-}
-
-.word-coloring {
-    background: linear-gradient(to right, #d4af37, #f5f5f5);
-    -webkit-background-clip: text; /* Clipping background to text */
-    color: transparent; /* Makes the text color transparent */
-}
-
 .logo-container img {
     width: 52px;
     height: auto;
@@ -78,19 +130,25 @@ header {
     transition: transform 0.3s ease;
 }
 
-.logo {
-    width: 52px;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
+.logo-container img:hover {
     transform: scale(1.05);
 }
 
-.watch-img:hover {
-    transform: scale(1.05);
+.logo-container p {
+    margin: 1rem;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
 }
+
+.color-effect {
+    background: linear-gradient(to right, #d4af37, #f5f5f5);
+    -webkit-background-clip: text; /* Clipping background to text */
+    color: transparent; /* Makes the text color transparent */
+}
+
+/***** Navbar *****/
 
 .navbar-ul {
     display: flex;
@@ -102,24 +160,34 @@ header {
 
 .navbar-ul li {
     font-size: 1.2rem;
+    list-style-type: none;
+    transition: transform 0.3s ease;
 }
 
 .navbar-ul li:hover {
     transform: scale(1.05);
 }
 
+.navbar-ul li a {
+    color: var(--white);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
 .navbar-ul li a:hover {
     color: var(--gold);
 }
 
+/***** Home *****/
+
 #home {
     margin-top: 5rem;
+    padding: 6rem 2rem;
+    line-height: 1.5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 6rem 2rem;
-    line-height: 1.5;
     position: relative;
     isolation: isolate;
 }
@@ -128,8 +196,7 @@ header {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('../assets/background-image-1600.jpg') no-repeat center center;
-    background-size: cover;
+    background: url('../assets/background-image-1600.jpg') no-repeat center center/cover;
     opacity: 0.3; /* Background image opacity */
     z-index: -1; /* Behind all other elements */
 }
@@ -142,6 +209,8 @@ header {
     z-index: -1; /* Behind all other elements */
 }
 
+/***** About *****/
+
 .column-container {
     display: flex;
     flex-wrap: wrap;
@@ -151,61 +220,28 @@ header {
 
 .column-container > div {
     flex: 1 1 30%; /* Each column takes about 30% of the container */
-    min-width: 250px; /* Minimum width for each column */
+    min-width: 16rem; /* Minimum width for each column */
 }
 
-h1 {
-    font-family: "Montserrat", "Verdana", "Helvetica", sans-serif;
-    font-size: 4rem;
-    margin-bottom: 0;
-    padding: 0 4rem;
-}
-
-.word-coloring {
-    background: linear-gradient(to right, #d4af37, #f5f5f5);
-    -webkit-background-clip: text; /* Clipping background to text */
-    color: transparent; /* Makes the text color transparent */
-    font-family: "Montserrat Subrayada", sans-serif;
-}
-
-.section-1 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 4.5rem;
-    padding: 0 4rem;
-}
-
-h3 {
-    font-size: 2rem;
-    margin: 0 0 2rem 0;
-    padding: 0 4rem;
-}
-
-p {
-    font-size: 1.2em;
-    margin: 0;
-    padding: 0 4rem;
-}
+/***** Products *****/
 
 #products {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem 2rem 6rem 2rem;
-    background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0.5));
+    background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5));
     background-size: cover;
 }
 
-.section-2-products {
+.products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 4rem;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-}
+/***** Card *****/
 
 .card {
     padding: 0;
@@ -215,6 +251,12 @@ h2 {
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
 }
 
 .card img {
@@ -225,83 +267,37 @@ h2 {
     border-radius: 0.2rem;
 }
 
-.watch-description {
-    display: block;
-    text-align: left;
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-}
-
-.card h3 {
-    margin: 1rem 0;
-    padding: 1rem;
-    font-size: 1.50rem;
-    font-weight: bold;
+.card h4 {
+    padding:0 1.5rem ;
 }
 
 .card p {
-    padding: 0 1rem 1rem;
-    font-size: 1.1rem;
+    padding: 0 1.5rem 1rem;
 }
 
-.card:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
-}
-
-button {
-    margin: 0 1rem 1rem;
+.card-description {
+    display: block;
     padding: 0.5rem 1.5rem;
-    background-color: var(--leather-brown);
-    color: var(--cream);
-    /*border: none;*/
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: 1px solid var(--gold);
+    font-size: 1rem;
+    text-align: left;
 }
 
-button:hover {
-    background-color: var(--leather-brown-hover);
-    transform: translateY(-2px);
-    border: 1px solid var(--gold);
-}
-
-.button-fixed {
-    position: absolute;
-    z-index: 1;
-    bottom: 2rem;
-    font-size: 0.8rem !important;
-    border: 1px solid var(--gold);
-}
+/***** Contact *****/
 
 #contact {
-    background-color: #666;
-    color: white;
-    padding: 20px 0;
+    padding: 1rem 0;
+    color: var(--white);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5));
 }
 
-li {
-    list-style-type: none;
-}
-
-li a {
-    text-decoration: none;
-    color: white;
-}
-
-li a:hover {
-    color: gray;
-}
-
-.get-in-touch-container {
+.contact-us-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 2rem;
     padding: 4rem;
     overflow: hidden;
-    gap: 2rem;
 }
 
 .visit-us {
@@ -312,29 +308,7 @@ li a:hover {
     padding: 2rem;
 }
 
-.send-us-message-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 2rem 2rem;
-    flex-wrap: wrap;
-}
-
-.send-us-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-}
-
-.subscribe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-
-}
+/****** Footer *****/
 
 footer {
     background-color: var(--dark-brown);
