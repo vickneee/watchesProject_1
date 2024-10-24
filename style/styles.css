@@ -85,7 +85,12 @@ button {
 button:hover {
     background-color: var(--leather-brown-hover);
     border: 1px solid var(--gold);
-    transform: translateY(-2px);
+    transform: translateY(-0.5px);
+}
+
+button:active {
+    transform: translateY(+0.5px);
+    transition: transform 0.3s ease;
 }
 
 .button-fixed {
@@ -130,15 +135,20 @@ header {
 }
 
 .logo-container img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-.logo-container p {
+.logo-container a {
     margin: 1rem;
     padding: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 2.5rem;
     text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+.logo-container a:hover {
+    transform: scale(1.02);
 }
 
 .color-effect {
